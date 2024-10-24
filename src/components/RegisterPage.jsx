@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaHome } from 'react-icons/fa'; 
+import PasswordInput from './PasswordInput'; 
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
@@ -10,7 +12,7 @@ const RegisterPage = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    // Basic validation
+
     if (password !== confirmPassword) {
       alert('Passwords do not match!');
       return;
@@ -21,12 +23,18 @@ const RegisterPage = () => {
     localStorage.setItem('user', JSON.stringify(user));
 
     alert('Registration successful!');
-    navigate('/login');  // Redirect to login page
+    navigate('/login');  
   };
 
   return (
     <div className="flex items-center justify-center h-screen bg-gradient-to-r from-gray-800 to-gray-900">
       <div className="w-full max-w-md p-8 bg-gray-800 rounded-lg shadow-lg">
+
+        <div className="mb-4 flex justify-center">
+          <button onClick={() => navigate('/')} className="text-white hover:text-blue-500">
+            <FaHome size={24} />
+          </button>
+        </div>
         <h2 className="text-3xl font-semibold text-center text-white mb-6">Register</h2>
         <form onSubmit={handleRegister} className="space-y-6">
           <div>
@@ -42,10 +50,7 @@ const RegisterPage = () => {
           </div>
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-400">Password:</label>
-            <input
-              type="password"
-              id="password"
-              className="mt-1 block w-full px-4 py-2 text-gray-100 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            <PasswordInput
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -53,10 +58,7 @@ const RegisterPage = () => {
           </div>
           <div>
             <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-400">Confirm Password:</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              className="mt-1 block w-full px-4 py-2 text-gray-100 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            <PasswordInput
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
