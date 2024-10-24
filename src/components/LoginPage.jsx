@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaHome } from 'react-icons/fa'; 
-import PasswordInput from './PasswordInput'; 
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import PasswordInput from "./PasswordInput";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     // Retrieve user data from localStorage
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const storedUser = JSON.parse(localStorage.getItem("user"));
 
     // Check if the user exists and credentials match
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
-      alert('Login successful!');
-      navigate('/account');  
+    if (
+      storedUser &&
+      storedUser.email === email &&
+      storedUser.password === password
+    ) {
+      alert("Login successful!");
+      navigate("/account");
     } else {
-      alert('Invalid login. Please check your email or password.');
+      alert("Invalid login. Please check your email or password.");
     }
   };
 
@@ -27,14 +31,24 @@ const LoginPage = () => {
     <div className="flex items-center justify-center h-screen bg-gradient-to-r from-gray-800 to-gray-900">
       <div className="w-full max-w-md p-8 bg-gray-800 rounded-lg shadow-lg">
         <div className="mb-4 flex justify-center">
-          <button onClick={() => navigate('/')} className="text-white hover:text-blue-500">
+          <button
+            onClick={() => navigate("/")}
+            className="text-white hover:text-blue-500"
+          >
             <FaHome size={24} />
           </button>
         </div>
-        <h2 className="text-3xl font-semibold text-center text-white mb-6">Login</h2>
+        <h2 className="text-3xl font-semibold text-center text-white mb-6">
+          Login
+        </h2>
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email:</label>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-300"
+            >
+              Email:
+            </label>
             <input
               type="email"
               id="email"
@@ -45,7 +59,12 @@ const LoginPage = () => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-400">Password:</label>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-400"
+            >
+              Password:
+            </label>
             <PasswordInput
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -60,7 +79,13 @@ const LoginPage = () => {
           </button>
         </form>
         <p className="mt-4 text-center text-sm text-gray-400">
-          Don't have an account? <a href="/register" className="text-blue-400 hover:underline">Register</a>
+          Don't have an account?
+          <button
+            onClick={() => navigate("/register")}
+            className="ml-1 text-blue-400 hover:underline"
+          >
+            Register
+          </button>
         </p>
       </div>
     </div>

@@ -12,6 +12,23 @@ This project is a React application (V16+) that allows users to create and manag
 - **Responsive Design**: The application is designed to be mobile-friendly.
 - **Error Handling**: Basic error handling for login and registration.
 
+## Pages Overview
+
+1. **Login Page**
+   - Users enter their email and password to log in.
+   - On successful login, they are redirected to the Account Information page.
+   - A “Back to Home” button is present on the top-left corner.
+
+2. **Registration Page**
+   - Users can create an account by entering an email and password.
+   - The account details are saved in localStorage.
+   - A “Back to Home” button is present on the top-left corner.
+
+3. **Account Information Page**
+   - Displays the logged-in user’s email and password.
+   - Users can update their details, which are saved in localStorage.
+   - A “Back to Home” button is present on the top-left corner.
+
 ## Tech Stack
 
 - **Frontend**: React (V16+)
