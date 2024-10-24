@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser } from 'react-icons/fa'; // Import user icon from react-icons
+import { FaUser } from 'react-icons/fa';
 
 const HomePage = () => {
   return (
