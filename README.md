@@ -27,4 +27,29 @@ To run the application locally, follow these steps:
    ```bash
    git clone <your-repo-url>
    cd <your-project-directory>
+
+2. **Install the dependencies**:
+   ```bash
+   npm install
+
+3. **Start the development server**:
+   ```bash
+    npm start
+
+4. **Open the application**:
+    ```bash
+    The application will open in your default browser at `http://localhost:3000`.
+```
+
+## Folder Structure
+
+The project is structured as follows:
+
+- **`public/`**: Contains the HTML template and other static assets.
+- **`src/`**: Contains the React application's source code.
+  - **`components/`**: Contains all the React components.
+  - **`pages/`**: Contains the different pages of the application.
+  - **`App.js`**: The root component of the application.
+  - **`index.js`**: The entry point of the application.
+
    
